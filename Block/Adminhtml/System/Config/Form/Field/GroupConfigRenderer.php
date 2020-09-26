@@ -6,11 +6,13 @@
 
 namespace SoftwareEngineer\Donation\Block\Adminhtml\System\Config\Form\Field;
 
+use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
+
 /**
  * Class GroupConfigRenderer
  * @package SoftwareEngineer\Donation\Block\Adminhtml\System\Config\Form\Field
  */
-class GroupConfigRenderer extends \Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray
+class GroupConfigRenderer extends AbstractFieldArray
 {
     protected $groupGroupRenderer;
 
