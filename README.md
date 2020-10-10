@@ -51,7 +51,8 @@ Final project of Software Engineer on TDTU
 + Show donation dropdown in PDP.<br />
 ![alt text](image/display_to_product.jpeg)
 + Show fee in checkout cart, order.<br />
-(coming soon...)
+![alt text](image/add_donation_to_total.jpeg)
+![alt text](image/add_donation_to_total_2.jpeg)
 + Show fee in invoice, creditmemo in backend and my account page.<br />
 (coming soon...)
 + Show fee in Print order, order email.<br />
