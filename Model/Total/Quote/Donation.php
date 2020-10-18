@@ -1,10 +1,17 @@
 <?php
 namespace SoftwareEngineer\Donation\Model\Total\Quote;
+
+use Magento\Quote\Model\Quote\Address\Total\AbstractTotal;
+use Magento\Framework\Pricing\PriceCurrencyInterface;
+use Magento\Quote\Model\Quote;
+use Magento\Quote\Api\Data\ShippingAssignmentInterface;
+use Magento\Quote\Model\Quote\Address\Total;
+
 /**
  * Class Donation
  * @package SoftwareEngineer\Donation\Model\Total\Quote
  */
-class Donation extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
+class Donation extends AbstractTotal
 {
     /**
      * @var \Magento\Framework\Pricing\PriceCurrencyInterface
@@ -15,7 +22,7 @@ class Donation extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
      * @param \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
      */
     public function __construct(
-        \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
+        PriceCurrencyInterface $priceCurrency
     ){
         $this->_priceCurrency = $priceCurrency;
     }
@@ -26,9 +33,9 @@ class Donation extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
      * @return $this|bool
      */
     public function collect(
-        \Magento\Quote\Model\Quote $quote,
-        \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment,
-        \Magento\Quote\Model\Quote\Address\Total $total
+        Quote $quote,
+        ShippingAssignmentInterface $shippingAssignment,
+        Total $total
     )
     {
         parent::collect($quote, $shippingAssignment, $total);

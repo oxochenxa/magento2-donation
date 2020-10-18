@@ -4,17 +4,24 @@ namespace SoftwareEngineer\Donation\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use \Magento\Checkout\Model\Session as CheckoutSession;
+use Magento\Checkout\Model\Session as CheckoutSession;
 
+/**
+ * Class Donation
+ * @package SoftwareEngineer/Donation/Observer
+ */
 class Donation implements ObserverInterface
 {
     protected $checkoutSession;
+    protected $observer;
 
-    public function __construct(CheckoutSession $checkoutSession) {
+    public function __construct(
+        CheckoutSession $checkoutSession
+    ) {
         $this->checkoutSession = $checkoutSession;
     }
 
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         $params = $observer->getRequest()->getParams();
         $product = $observer->getEvent()->getDataByKey('product');

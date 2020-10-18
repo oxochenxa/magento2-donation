@@ -8,6 +8,8 @@ namespace SoftwareEngineer\Donation\Block\Adminhtml\System\Config;
 
 use Magento\Backend\Block\Template\Context;
 use Magento\Cms\Model\Wysiwyg\Config as WysiwygConfig;
+use Magento\Config\Block\System\Config\Form\Field;
+use Magento\Framework\Data\Form\Element\AbstractElement;
 
 /**
  * Class Editor
@@ -15,7 +17,7 @@ use Magento\Cms\Model\Wysiwyg\Config as WysiwygConfig;
  * @description Block class to define new RTE field.
  * @package     SoftwareEngineer\Theme\Block\Adminhtml\System\Config
  */
-class Editor extends \Magento\Config\Block\System\Config\Form\Field
+class Editor extends Field
 {
     /**
      * @param Context       $context
@@ -31,7 +33,7 @@ class Editor extends \Magento\Config\Block\System\Config\Form\Field
         parent::__construct($context, $data);
     }
 
-    protected function _getElementHtml(\Magento\Framework\Data\Form\Element\AbstractElement $element)
+    protected function _getElementHtml(AbstractElement $element)
     {
         $element->setWysiwyg(true);
         $element->setConfig($this->_wysiwygConfig->getConfig($element));

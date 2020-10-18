@@ -4,9 +4,13 @@ namespace SoftwareEngineer\Donation\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use \Magento\Checkout\Model\Session as CheckoutSession;
+use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Quote\Model\Quote;
 
+/**
+ * AfterOrderSuccessObserver
+ * @package SoftwareEngineer/Donation/Observer/
+ */
 class AfterOrderSuccessObserver implements ObserverInterface
 {
     protected $checkoutSession;
@@ -18,7 +22,7 @@ class AfterOrderSuccessObserver implements ObserverInterface
         $this->quote = $quote;
     }
 
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    public function execute(Observer $observer)
     {
         /**
          * @var \Magento\Sales\Model\Order $order

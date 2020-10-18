@@ -1,7 +1,16 @@
 <?php
 namespace SoftwareEngineer\Donation\Block;
 
-class Donation extends \Magento\Framework\View\Element\Template
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Store\Model\ScopeInterface;
+
+/**
+ * Class Donation
+ * @package SoftwareEngineer/Donation/Block
+ */
+class Donation extends Template
 {
     const TITLE = 'donation/general/title';
     const DES = 'donation/general/description';
@@ -9,9 +18,11 @@ class Donation extends \Magento\Framework\View\Element\Template
     const IMAGE = 'donation/general/image';
     const ENABLE = 'donation/general/enable';
 
+    protected $scopeConfig;
+
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+        Context $context,
+        ScopeConfigInterface $scopeConfig
     )
     {
         $this->scopeConfig = $scopeConfig;
@@ -19,27 +30,37 @@ class Donation extends \Magento\Framework\View\Element\Template
     }
 
     public function getTitle(){
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::TITLE, $storeScope);
+        return $this->scopeConfig->getValue(
+            self::TITLE,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     public function getDescription(){
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::DES, $storeScope);
+        return $this->scopeConfig->getValue(
+            self::DES,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     public function getListMoney(){
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::LIST_MONEY_DONATION, $storeScope);
+        return $this->scopeConfig->getValue(
+            self::LIST_MONEY_DONATION,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     public function getImage(){
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::IMAGE, $storeScope);
+        return $this->scopeConfig->getValue(
+            self::IMAGE,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     public function checkEnable(){
-        $storeScope = \Magento\Store\Model\ScopeInterface::SCOPE_STORE;
-        return $this->scopeConfig->getValue(self::ENABLE, $storeScope);
+        return $this->scopeConfig->getValue(
+            self::ENABLE,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 }
