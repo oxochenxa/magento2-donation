@@ -9,7 +9,7 @@
  - [Attributes](#attributes)
 
 ## Main Functionalities
-Final project of Software Engineer on TDTU
+Final project of Software Engineer on TDTU. <br/>
 Follow team by Trello: https://bit.ly/2T8q5Pe
 
 ## Installation
