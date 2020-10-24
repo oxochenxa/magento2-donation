@@ -3,4 +3,8 @@
     <event name="checkout_cart_add_product_complete">
         <observer name="add_donation_to_quote" instance="SoftwareEngineer\Donation\Observer\Donation" />
     </event>
+
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="after_order_success" instance="SoftwareEngineer\Donation\Observer\AfterOrderSuccessObserver" />
+    </event>
 </config>
