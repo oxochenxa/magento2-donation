@@ -37,9 +37,9 @@ Follow team by Trello: https://bit.ly/2T8q5Pe
 + Show fee in checkout cart, order.<br />
 ![alt text](image/add_donation_to_total.jpeg)
 ![alt text](image/add_donation_to_total_2.jpeg)
-+ Show fee in invoice, creditmemo in backend and my account page.<br />
++ Show donation in invoice, creditmemo in backend and my account page.<br />
 (coming soon...)
-+ Show fee in Print order, order email.<br />
++ Show donation in Print order, order email.<br />
 (coming soon...)
 + Sort, filter in order grid and invoice grid.<br />
 (coming soon...)
