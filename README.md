@@ -41,6 +41,7 @@ Follow team by Trello: https://bit.ly/2T8q5Pe
 ![alt text](image/show_donation_in_order.jpeg)
 ![alt text](image/show_donation_in_invoice.jpeg)
 ![alt text](image/show_donation_in_creditmemo.jpeg)
+![alt text](image/show_donation_in_my_order.jpeg)
 + Show donation in Print order, order email.<br />
 (coming soon...)
 + Sort, filter in order grid and invoice grid.<br />
