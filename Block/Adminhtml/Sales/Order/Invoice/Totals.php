@@ -5,9 +5,13 @@ namespace SoftwareEngineer\Donation\Block\Adminhtml\Sales\Order\Invoice;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\DataObject;
+use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Totals extends Template
 {
+    const TITLE = 'donation/general/title';
+
     /**
      * Order invoice
      *
@@ -26,9 +30,11 @@ class Totals extends Template
      * @param array $data
      */
     public function __construct(
+        ScopeConfigInterface $scopeConfig,
         Context $context,
         array $data = []
     ) {
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
@@ -46,6 +52,14 @@ class Totals extends Template
     {
         return $this->getParentBlock()->getInvoice();
     }
+
+    public function getTitle(){
+        return $this->scopeConfig->getValue(
+            self::TITLE,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
     /**
      * Initialize payment donation totals
      *
@@ -56,7 +70,6 @@ class Totals extends Template
         $this->getParentBlock();
         $this->getInvoice();
         $this->getSource();
-        $title = 'Donate to the store';
 
         if(!$this->getSource()->getDonation()) {
             return $this;
@@ -65,7 +78,7 @@ class Totals extends Template
             [
                 'code' => 'donation',
                 'value' => $this->getSource()->getDonation(),
-                'label' =>  __($title)
+                'label' =>  __($this->getTitle())
             ]
         );
 

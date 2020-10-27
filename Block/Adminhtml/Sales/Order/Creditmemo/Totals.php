@@ -2,12 +2,16 @@
 
 namespace SoftwareEngineer\Donation\Block\Adminhtml\Sales\Order\Creditmemo;
 
+use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\DataObject;
+use Magento\Store\Model\ScopeInterface;
 
 class Totals extends Template
 {
+    const TITLE = 'donation/general/title';
+
     /**
      * Order invoice
      *
@@ -27,8 +31,10 @@ class Totals extends Template
      */
     public function __construct(
         Context $context,
+        ScopeConfigInterface $scopeConfig,
         array $data = []
     ) {
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
 
@@ -46,6 +52,14 @@ class Totals extends Template
     {
         return $this->getParentBlock()->getCreditmemo();
     }
+
+    public function getTitle(){
+        return $this->scopeConfig->getValue(
+            self::TITLE,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
     /**
      * Initialize payment donation totals
      *
@@ -65,7 +79,7 @@ class Totals extends Template
                 'code' => 'donation',
                 'strong' => false,
                 'value' => $this->getSource()->getDonation(),
-                'label' => 'Donate to the store'
+                'label' => __($this->getTitle())
             ]
         );
 

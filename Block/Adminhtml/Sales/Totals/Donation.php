@@ -5,9 +5,13 @@ use Magento\Sales\Model\Order;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\DataObject;
+use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Donation extends Template
 {
+    const TITLE = 'donation/general/title';
+
     /**
      * @var Order
      */
@@ -22,10 +26,13 @@ class Donation extends Template
      */
     public function __construct(
         Context $context,
+        ScopeConfigInterface $scopeConfig,
         array $data = []
     ) {
+        $this->scopeConfig = $scopeConfig;
         parent::__construct($context, $data);
     }
+
     public function getSource()
     {
         return $this->_source;
@@ -35,20 +42,26 @@ class Donation extends Template
     {
         return true;
     }
+
+    public function getTitle(){
+        return $this->scopeConfig->getValue(
+            self::TITLE,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
     public function initTotals()
     {
         $parent = $this->getParentBlock();
         $this->_order = $parent->getOrder();
         $this->_source = $parent->getSource();
-        $title = 'Donate to the store';
-        $store = $this->getStore();
         if($this->_order->getDonation()!=0){
             $customAmount = new DataObject(
                 [
                     'code' => 'donation',
                     'strong' => false,
                     'value' => $this->_order->getDonation(),
-                    'label' => __($title),
+                    'label' => __($this->getTitle())
                 ]
             );
             $parent->addTotal($customAmount, 'donation');
