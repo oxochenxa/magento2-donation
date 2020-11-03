@@ -15,4 +15,8 @@
     <table name="sales_creditmemo">
         <column xsi:type="int" name="donation" padding="10" unsigned="true" nullable="false" comment="donation"/>
     </table>
+
+    <table name="quote_item">
+        <column xsi:type="int" name="donation" padding="10" unsigned="true" nullable="false" comment="donation"/>
+    </table>
 </schema>
