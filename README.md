@@ -43,7 +43,8 @@ Follow team by Trello: https://bit.ly/2T8q5Pe
 ![alt text](image/show_donation_in_creditmemo.jpeg)
 ![alt text](image/show_donation_in_my_order.jpeg)
 + Show donation in Print order, order email.<br />
-(coming soon...)
+![alt text](image/show_donation_to_my_order.jpeg)
+![alt text](image/show_donation_to_order_email.jpeg)
 + Sort, filter in order grid and invoice grid.<br />
 (coming soon...)
 + Apply multiple product.<br />
