@@ -48,7 +48,6 @@ Follow team by Trello: https://bit.ly/2T8q5Pe
 + Sort, filter in order grid and invoice grid.<br />
 ![alt text](image/show_column_donation.jpeg)
 ![alt text](image/Sort-filterinordergridandinvoicegrid.jpeg)
-+ Apply multiple product.<br />
-(coming soon...)
++ Apply multiple product.
 
 
